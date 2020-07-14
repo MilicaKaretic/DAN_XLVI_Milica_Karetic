@@ -11,7 +11,7 @@ namespace DAN_XLVI_Milica_Karetic
     class Logger
     {
 
-        // File where to save the message
+        // File location
         private readonly string file = @"..\..\LogManager.txt";
         // The lock object protecting the entrance to the file
         private readonly object locker = new object();

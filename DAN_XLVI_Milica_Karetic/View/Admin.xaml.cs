@@ -23,6 +23,7 @@ namespace DAN_XLVI_Milica_Karetic.View
         public Admin()
         {
             InitializeComponent();
+            
             this.DataContext = new AdminViewModel(this);
         }
     }

@@ -29,6 +29,7 @@ namespace DAN_XLVI_Milica_Karetic.View
         public AddWorker(vwUser userEdit)
         {
             InitializeComponent();
+            
             this.DataContext = new AddWorkerViewModel(this, userEdit);
         }
 

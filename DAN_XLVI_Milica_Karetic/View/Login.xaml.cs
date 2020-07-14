@@ -26,6 +26,7 @@ namespace DAN_XLVI_Milica_Karetic.View
         public Login()
         {
             InitializeComponent();
+            
             this.DataContext = new LoginViewModel(this);
         }
 

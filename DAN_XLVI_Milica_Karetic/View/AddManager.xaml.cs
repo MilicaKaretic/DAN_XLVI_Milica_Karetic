@@ -24,6 +24,7 @@ namespace DAN_XLVI_Milica_Karetic.View
         public AddManager()
         {
             InitializeComponent();
+           
             this.DataContext = new AddManagerViewModel(this);
         }
 

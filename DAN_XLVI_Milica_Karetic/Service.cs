@@ -17,7 +17,7 @@ namespace DAN_XLVI_Milica_Karetic
         /// <summary>
         /// Saves the user that is logged in
         /// </summary>
-        public List<tblUser> LoggedInUser = new List<tblUser>();
+        public static List<tblUser> LoggedInUser = new List<tblUser>();
 
         /// <summary>
         /// Gets all users from database

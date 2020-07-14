@@ -93,10 +93,10 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
                 {
                     if (User.Username == UserList[i].Username && password == UserList[i].UserPassword)
                     {
+                        Service.LoggedInUser.Add(UserList[i]);
                         MainWindow mw = new MainWindow();
                         InfoLabel = "Loggedin";
                         found = true;
-                        service.LoggedInUser.Add(UserList[i]);
                         view.Close();
                         mw.Show();
                         break;

@@ -3,6 +3,7 @@ using DAN_XLVI_Milica_Karetic.Model;
 using DAN_XLVI_Milica_Karetic.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
 {
     class AddManagerViewModel : BaseViewModel
     {
+        private readonly BackgroundWorker bgWorker = new BackgroundWorker();
         AddManager addManager;
         Service service = new Service();
 
@@ -26,6 +28,7 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
         {
             manager = new vwManager();
             addManager = addManagerOpen;
+            bgWorker.DoWork += WorkerOnDoWork;
             ManagerList = service.GetAllManagers().ToList();
         }
         #endregion
@@ -76,6 +79,16 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
         }
         #endregion
 
+
+        #region log
+        public void WorkerOnDoWork(object sender, DoWorkEventArgs e)
+        {
+            Logger log = new Logger();
+            string message = log.Message("Added", Manager.FirstName, Manager.LastName);
+
+            log.LogFile(message);
+        }
+        #endregion
         #region Commands
         /// <summary>
         /// Command that tries to save the new manager
@@ -104,6 +117,11 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
                 service.AddManager(Manager);
                 IsUpdateManager = true;
 
+                if (!bgWorker.IsBusy)
+                {
+                    // This method will start the execution asynchronously in the background
+                    bgWorker.RunWorkerAsync();
+                }
                 addManager.Close();
                 adminView.Show();
             }

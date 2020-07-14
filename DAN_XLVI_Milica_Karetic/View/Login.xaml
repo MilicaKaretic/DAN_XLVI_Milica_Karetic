@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAN_XLVI_Milica_Karetic.View"
         mc:Ignorable="d"
+        
         Title="Login" Height="450" Width="800">
     <Border Background="Gray"
             CornerRadius="20"
@@ -14,7 +15,6 @@
                    Foreground="White"
                    FontSize="25"
                    HorizontalAlignment="Center" />
-            <Separator></Separator>
             <Label Content="Username"
                    Foreground="White" />
             <TextBox Name="txtUsername"

@@ -178,6 +178,7 @@
     <None Include="Model\ReportDBModel.edmx.diagram">
       <DependentUpon>ReportDBModel.edmx</DependentUpon>
     </None>
+    <Resource Include="Resources\password.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

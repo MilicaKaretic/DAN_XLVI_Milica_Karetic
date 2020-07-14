@@ -65,6 +65,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="InputCalculator.cs" />
+    <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\ReportDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +88,7 @@
     <Compile Include="Model\tblUser.cs">
       <DependentUpon>ReportDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\vwManager.cs">
       <DependentUpon>ReportDBModel.tt</DependentUpon>
     </Compile>
@@ -95,9 +98,24 @@
     <Compile Include="Model\vwUserReport.cs">
       <DependentUpon>ReportDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Converter\RadioButtonConverter.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="Validation.cs" />
+    <Compile Include="ViewModel\AddManagerViewModel.cs" />
+    <Compile Include="ViewModel\AddWorkerViewModel.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\AddManager.xaml.cs">
+      <DependentUpon>AddManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddWorker.xaml.cs">
+      <DependentUpon>AddWorker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -113,6 +131,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -70,9 +70,6 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
         #endregion
 
         #region Commands
-        /// <summary>
-        /// Command used to log te user into the application
-        /// </summary>
         private ICommand login;
         public ICommand Login
         {
@@ -86,10 +83,6 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
             }
         }
 
-        /// <summary>
-        /// Checks if its possible to login depending on the given username and password and saves the logged in user to a list
-        /// </summary>
-        /// <param name="obj"></param>
         private void LoginExecute(object obj)
         {
             string password = (obj as PasswordBox).Password;
@@ -100,10 +93,10 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
                 {
                     if (User.Username == UserList[i].Username && password == UserList[i].UserPassword)
                     {
-                        //Service.LoggedInUser.Add(UserList[i]);
                         MainWindow mw = new MainWindow();
                         InfoLabel = "Loggedin";
                         found = true;
+                        service.LoggedInUser.Add(UserList[i]);
                         view.Close();
                         mw.Show();
                         break;
@@ -122,9 +115,9 @@ namespace DAN_XLVI_Milica_Karetic.ViewModel
 
             if (User.Username == "WPFadmin" && password == "WPFadmin")
             {
-               // Admin admin = new Admin();
+                Admin admin = new Admin();
                 view.Close();
-                //admin.Show();
+                admin.Show();
             }
         }
         #endregion

@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAN_XLVI_Milica_Karetic.Model
+{
+    public partial class vwUser : IDataErrorInfo
+    {
+        Validation validation = new Validation();
+
+        /// <summary>
+        /// Total amount of propertis we are checking
+        /// </summary>
+        static readonly string[] ValidatedProperties =
+        {
+            "JMBG",
+            "Gender",
+            "BankAccount",
+            "Email",
+            "Salary",
+            "Username"
+        };
+
+        /// <summary>
+        /// Returns true if this object has no validation errors.
+        /// </summary>
+        public bool IsValid
+        {
+            get
+            {
+                foreach (string property in ValidatedProperties)
+                {
+                    // there is an error
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the inputs are incorrect
+        /// </summary>
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Does validations on the property location
+        /// </summary>
+        /// <param name="propertyName">property we are checking</param>
+        /// <returns>if the property is valid (null) or error (string)</returns>
+        public string this[string propertyName]
+        {
+            get
+            {
+                string result = null;
+
+                switch (propertyName)
+                {
+                    case "JMBG":
+                        result = this.validation.JMBGChecker(JMBG, UserID);
+                        break;
+
+                    case "Username":
+                        result = this.validation.UsernameChecker(Username, UserID);
+                        break;
+
+                    case "BankAccount":
+                        result = this.validation.TooShort(BankAccount, 6);
+                        break;
+
+                    case "Email":
+                        result = this.validation.IsValidEmailAddress(Email, UserID);
+                        break;
+
+                    case "Salary":
+                        result = this.validation.IsDouble(Salary);
+                        break;
+
+                    default:
+                        result = null;
+                        break;
+                }
+
+                return result;
+            }
+        }
+    }
+}
